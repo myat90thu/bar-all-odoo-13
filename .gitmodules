@@ -1,0 +1,4 @@
+[submodule "Miller-Media/pragmatic_quickbooks_connector"]
+	path = Miller-Media/pragmatic_quickbooks_connector
+	url = git@github.com:Miller-Media/pragmatic_quickbooks_connector.git
+	branch = master
