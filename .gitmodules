@@ -7,3 +7,8 @@
 	path = Miller-Media/odoo-skuvault-connector
 	url = git@github.com:Miller-Media/odoo-skuvault-connector.git
 	branch = odoo-13
+
+[submodule "Miller-Media/connector"]
+	path = Miller-Media/connector
+	url = git@github.com:Miller-Media/connector.git
+	branch = 13.0
