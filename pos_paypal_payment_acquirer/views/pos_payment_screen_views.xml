@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- License URL : <https://store.webkul.com/license.html/> -->
+<odoo>
+	<data>
+
+		<record id="pos_config_form_inherited" model="ir.ui.view">
+			<field name="name">pos.config.form.inherit</field>
+			<field name="model">pos.config</field>
+			<field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+			<field name="arch" type="xml">
+                <xpath expr="//div[@id='barcode_scanner']" position="after">
+					<div id="pos_payment_screen" class="col-12 col-lg-6 o_setting_box">
+						<div class="o_setting_left_pane">
+						</div>
+						<div class="o_setting_right_pane">
+							<span class="o_form_label">Pos Payment Screen</span>
+							<div class="text-muted">
+								Add the banners, title and other stuffs..
+							</div>
+							<div class="content-group mt16 row">
+								<field name="pos_payment_screen" invisible="1"/>
+							</div>
+							<div>
+								<div class="mt8">
+									<button name="open_screen_configuration" type="object" string="Screen Configuration" class="btn-link" icon="fa-arrow-right"/>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="type_of_payment_screen" class="col-12 col-lg-6 o_setting_box">
+						<div class="o_setting_left_pane">
+						</div>
+						<div class="o_setting_right_pane">
+							<span class="o_form_label">Type Of Payment Screen</span>
+							<div class="text-muted">
+								Select the type of payment screen.
+							</div>
+							<div class="content-group mt16 row">
+								<field name="type_of_payment_screen" required="1"/>
+							</div>
+						</div>
+					</div>
+				</xpath>
+			</field>
+		</record>
+
+
+
+		<record id="pos_payment_screen_conf_tree" model="ir.ui.view">
+			<field name="name">pos.payment.screen.config.tree</field>
+			<field name="model">pos.payment.screen.config</field>
+			<field name="arch" type="xml">
+				<tree string="POS Payment Screen Config Tree">
+					<field name="related_id" string="Pos Config"/>
+					<!-- <field name="ip_address"/> -->
+					<field name="url" />
+				</tree>
+			</field>
+		</record>
+
+
+		<record id="pos_payment_screen_conf_form" model="ir.ui.view">
+			<field name="name">pos.payment.screen.config.form</field>
+			<field name="model">pos.payment.screen.config</field>
+			<field name="arch" type="xml">
+				<form string="POS Payment Screen Form">
+					<sheet>
+						<h1 style="text-align:center;" name="configuration">General Configurations</h1>
+						<div class="row mt16 o_settings_container" id="general_conf">
+							<group col="2" colspan="2">
+								<div class="col-12 col-lg-6 o_setting_box" >
+									<div class="o_setting_left_pane">
+									</div>
+									<div class="o_setting_right_pane">
+										<label for="related_id"/>
+										<div class="text-muted">
+											Assign this configuration to POS
+										</div>
+										<field name="related_id" required="1" style="width:400px;"/>
+									</div>
+								</div>
+								<div id="go_to_customer_screen" class="col-12 col-lg-6 o_setting_box">
+									<div class="o_setting_left_pane">
+									</div>
+									<div class="o_setting_right_pane">
+										<span class="o_form_label">Pos Customer Screen</span>
+										<div class="text-muted">
+											Click here to redirect to customer screen
+										</div>
+										<div class="content-group mt16 ml16 row">
+											<button string="Go to Customer Screen" name="redirect_customer_screen" id="customer_screen" class="oe_highlight" type="object"/>
+										</div>
+									</div>
+								</div>
+							</group>
+						</div>
+						<h1 style="text-align:center;" name="screens_configuration">POS Payment Screens Configurations</h1>
+						<separator/>
+						<separator/>
+						<h2 name="welcome_screen">POS Welcome Screen Configuration</h2>
+						<separator/>
+						<div class="row mt16 o_settings_container" id="welcome_conf">
+							<group col="2" colspan="2">
+								<div id="welcome_screen_heading" class="col-12 col-lg-6 o_setting_box">
+									<div class="o_setting_right_pane">
+										<label for="welcome_screen_heading" string="Welcome Screen Heading"/>
+										<div class="text-muted">
+											Welcome Screen Heading
+										</div>
+										<field name="welcome_screen_heading" style="width:400px;"/>
+									</div>
+									<div class="o_setting_left_pane">
+									</div>
+								</div>
+								<div class="col-12 col-lg-6 o_setting_box" >
+									<div class="o_setting_left_pane">
+									</div>
+									<div class="o_setting_right_pane">
+										<label for="welcome_screen_subheading"/>
+										<div class="text-muted">
+											Welcome Screen SubHeading
+										</div>
+										<field name="welcome_screen_subheading" style="width:400px;"/>
+									</div>
+								</div>
+							</group>
+							<group col="2" colspan="2">
+								<div id="welcome_screen_content" class="col-12 col-lg-6 o_setting_box">
+									<div class="o_setting_left_pane">
+									</div>
+									<div class="o_setting_right_pane">
+										<label for="welcome_screen_content" />
+										<div class="text-muted">
+											Show the main content on pos payment screen for promotional activities and much more.
+										</div>
+										<field name="welcome_screen_content" style="width:400px;"/>
+									</div>
+								</div>
+							</group>
+							<h3>Promotional Pictures For Welcome Screen</h3>
+							<separator/>
+							<group col="4" colspan="4">
+								<div id="promotions_pictures" class="col-12 col-lg-6 o_setting_box">
+									<label for="promotions_pictures"/>
+									<div class="text-muted">
+										Display Promotional Offers, Pictures or Upcoming events
+									</div>
+									<field name="promotions_pictures" options="{'create_text':'Add Images'}" style="height:150px;">
+										<kanban string="Promotional Pictures">
+											<field name="id" />
+											<field name="image" />
+											<templates>
+												<t t-name="kanban-box">
+													<div class="promotional_image oe_kanban_global_click" style="width:128px;height:128px;">
+														<img style="width:100%;height:100%;" t-att-src="kanban_image('promotion.image', 'image', record.id.value)"/>
+													</div>
+												</t>
+											</templates>
+										</kanban>
+										<form>
+											<group>
+												<field name="image" widget="image"/>
+											</group>
+										</form>
+									</field>
+								</div>
+							</group>
+						</div>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+
+		<record id="pos_payment_transaction_tree" model="ir.ui.view">
+			<field name="name">pos.payment.transaction.tree.view</field>
+			<field name="model">pos.payment.transaction</field>
+			<field name="arch" type="xml">
+				<tree string="POS Payment Transaction Tree">
+					<field name="order_ref"/>
+					<field name="txn_id"/>
+					<field name="payment_amount"/>
+				</tree>
+			</field>
+		</record>
+
+
+		<record id="pos_payment_transaction_form" model="ir.ui.view">
+			<field name="name">pos.payment.transaction.form.view</field>
+			<field name="model">pos.payment.transaction</field>
+			<field name="arch" type="xml">
+				<form string="POS Payment Transaction form" create="0">
+                <header>
+                    <field name="state" widget="statusbar"  />
+                </header>
+					<sheet>
+						<group col="4" colspan="4">
+							<field name="order_ref"/>
+							<field name="txn_id"/>
+							<field name="partner_id" attrs="{'invisible':[('partner_id','=',False)]}"/>
+							<field name="amount_with_currency" />
+							<field name="fail_reason" attrs="{'invisible':[('fail_reason','=',False)]}"/>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record id="pos_payment_transaction_action_id" model="ir.actions.act_window">
+			<field name="name">POS Payment Transaction</field>
+            <field name="type">ir.actions.act_window</field>
+			<field name="res_model">pos.payment.transaction</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="pos_paypal_payment_acquirer.pos_payment_transaction_tree" />
+		</record>
+
+    <record id="promotion_image_view_form" model="ir.ui.view">
+        <field name="name">promotion.image.view.form</field>
+        <field name="model">promotion.image</field>
+        <field name="arch" type="xml">
+            <form string="Promotional Images">
+				<group col="4" colspan="4">
+					<field name="image" widget="image"/>
+				</group>
+            </form>
+        </field>
+    </record>
+
+		
+		<record id="pos_payment_screen_config_action_id" model="ir.actions.act_window">
+			<field name="name">POS Payment Screen Config</field>
+            <field name="type">ir.actions.act_window</field>
+			<field name="res_model">pos.payment.screen.config</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="pos_paypal_payment_acquirer.pos_payment_screen_conf_tree" />
+		</record>
+
+		<menuitem 
+			id="pos_payment_screen_config_main_menu" 
+			parent="point_of_sale.menu_point_root" 
+			name='Pos Payment Screen'
+			/>
+		
+		<menuitem
+			id="pos_payment_screen_menu_id"
+			name="POS Payment Screen Configuration"
+			parent="pos_paypal_payment_acquirer.pos_payment_screen_config_main_menu" 
+			groups="point_of_sale.group_pos_manager"
+			action="pos_paypal_payment_acquirer.pos_payment_screen_config_action_id"
+			sequence="37"
+			/>
+		<menuitem
+			id="pos_payment_transaction_menu_id"
+			name="POS Payment Transactions"
+			parent="pos_paypal_payment_acquirer.pos_payment_screen_config_main_menu" 
+			groups="point_of_sale.group_pos_manager"
+			action="pos_paypal_payment_acquirer.pos_payment_transaction_action_id"
+			sequence="38"
+			/>
+
+	</data>
+</odoo>

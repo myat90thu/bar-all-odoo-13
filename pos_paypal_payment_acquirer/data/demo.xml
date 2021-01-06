@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- License URL : <https://store.webkul.com/license.html/> -->
+<odoo>
+    <data noupdate="1">
+    
+        <function 
+            name="create_paypal_payment_method"
+            model="pos.payment.method"
+        />
+
+        <record id="paypal_demo_credentials" model="pos_paypal.configuration">
+            <field name="name">Paypal Demo Credentials</field>
+            <field name="publishable_key">pk_test_MSxvYoiY4rUZYGogmONOQZZi</field>
+            <field name="secret_key">sk_test_4NLYW3hcdBZTLg08uu4C5aNJ</field>
+            <field name="active_record">True</field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- License URL : <https://store.webkul.com/license.html/> -->
+<!DOCTYPE html>
+<odoo>
+	<template id="pos_payment_screen_template" name="PKS Main screen">
+		<html>
+			<head>
+				<title >POS Paypal Payment Screen</title>
+				<link rel="stylesheet" type="text/css" href="/web/static/lib/fontawesome/css/font-awesome.css"/>
+				<script class="origin" type="text/javascript" src="/web/static/lib/jquery/jquery.js"></script>
+				<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+				<meta http-equiv="content-type" content="text/html, charset=utf-8" />
+				<meta name="viewport" content="width=device-width, initial-scale=1"/>
+				<meta name="apple-mobile-web-app-capable" content="yes"/>
+				<meta name="mobile-web-app-capable" content="yes"/>
+				<link rel="shortcut icon" href="/web/static/src/img/favicon.ico" type="image/x-icon"/>
+				<t t-call-assets="web.assets_common"/>
+				<t t-call-assets="web.assets_frontend"/>
+				<t t-call-assets="pos_paypal_payment_accquirer.display_assets"/>
+			</head>
+			<body>
+				<div class="main_body">
+					<div style="background:#80808047;height: 100%;">
+						<div class="wrap_loading">
+							<div class="d-flex justify-content-center" >
+								<div class="wk-loader"></div>
+							</div>
+							<div class="loading-content">
+								Your POS Session is not started yet, Please start to begin!!
+							</div>
+						</div>
+					</div>
+				</div>
+			</body>
+		</html>
+	</template>
+</odoo>

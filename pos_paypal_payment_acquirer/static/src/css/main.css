@@ -1,0 +1,295 @@
+
+/* Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) */
+/* See LICENSE file for full copyright and licensing details. */
+/* License URL : <https://store.webkul.com/license.html/> */
+
+.o_pos_paypal_scan_pending {
+    background: rgb(239, 153, 65) !important;
+}
+.o_pos_paypal_scan_tendered {
+    color: rgb(239, 153, 65) !important;
+    box-shadow: 0px 0px 0px 3px rgb(239, 153, 65) !important;
+}
+
+#paypal_qrcode{
+    margin-left:23px;
+}
+.paypal-form{
+    width:80%;
+    display: inline-block;
+}
+.payment_form{
+    display: flex;
+    justify-content: center;
+    margin-top:6%
+}
+#submit{
+  border: none;
+  border-radius: 4px;
+  outline: none;
+  text-decoration: none;
+  color: #fff;
+  background: #32325d;
+  white-space: nowrap;
+  display: inline-block;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 14px;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  text-decoration: none;
+  -webkit-transition: all 150ms ease;
+  transition: all 150ms ease;
+  /* float: left; */
+  /* margin-left:12px; */
+  margin-top:20px;
+  width: 100%;
+  text-align:center;
+}
+
+.PaypalElement, .card-extra-inputs {
+    box-sizing: border-box !important;
+  
+    height: 55px !important;
+  
+    padding: 15px 12px !important;
+  
+    border: 1px solid grey !important;
+    border-radius: 7px !important;
+    background-color: white !important;
+  
+    box-shadow: 0 2px 5px 0 #e6ebf1 !important;
+    -webkit-transition: box-shadow 150ms ease !important;
+    transition: box-shadow 150ms ease !important;
+  }
+  
+  .PaypalElement--focus {
+    box-shadow: 0 1px 3px 0 #cfd7df;
+  }
+  .card-extra-inputs--focus{
+    box-shadow: 0 1px 3px 0 #cfd7df;
+  }
+  
+  .PaypalElement--invalid {
+    border-color: #fa755a;
+  }
+  
+  .PaypalElement--webkit-autofill {
+    background-color: #fefde5 !important;
+  }
+
+.pos .paymentline.selected.o_pos_rounding, .pos .paymentline.o_pos_rounding {
+    background: rgb(239, 153, 65);
+}
+.pos .col-tendered.edit.o_pos_rounding {
+    color: rgb(239, 153, 65);
+    box-shadow: 0px 0px 0px 3px rgb(239, 153, 65);
+}
+
+.order_status {
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-left-color: #5cb85c;
+    animation-name: load_order;
+    animation-duration: .5s;
+    display: inline-block;
+    /* margin-left: 42%; */
+}
+
+.order_status,
+.order_status:after {
+    border-radius: 50%;
+}
+
+.show_tick:after {
+    opacity: 1;
+    height: 40px;
+    width: 20px;
+    transform-origin: left top;
+    border-right: 3px solid #5cb85c;
+    border-top: 3px solid #5cb85c;
+    content: '';
+    top: 62px;
+    right: 251px;
+    position: absolute;
+}
+
+@keyframes load_order {
+    0% {
+    transform: rotate(0deg);
+    }
+    100% {
+    transform: rotate(360deg);
+    }
+}
+@keyframes show_tick {
+    0% {
+    height: 0;
+    width: 0;
+    opacity: 1;
+    }
+    20% {
+    height: 0;
+    width: 20px;
+    opacity: 1;
+    }
+    40% {
+    height: 40px;
+    width: 20px;
+    opacity: 1;
+    }
+    100% {
+    height: 40px;
+    width: 20px;
+    opacity: 1;
+    }
+}
+
+.show_tick {
+    display: none;
+}
+
+.show_tick.draw:after {
+    animation-name: show_tick;
+    transform: scaleX(-1) rotate(135deg);
+    animation-duration: 1.2s;
+    animation-timing-function: ease;
+}
+.order_done {
+    -webkit-animation: none;
+    background-color: white;
+    border-color: #5cb85c;
+    animation: none;
+}
+
+
+
+
+
+
+
+
+
+.payment_order_status {
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-left-color: #5cb85c;
+    animation-name: payment_load_order;
+    animation-duration: .5s;
+    display: inline-block;
+    /* margin-left: 42%; */
+}
+
+.payment_order_status,
+.payment_order_status:after {
+    border-radius: 50%;
+}
+
+.payment_show_tick:after {
+    opacity: 1;
+    height: 80px;
+    width: 40px;
+    transform-origin: left top;
+    border-right: 3px solid #5cb85c;
+    border-top: 3px solid #5cb85c;
+    content: '';
+    top: 43%;
+    right: 50%;
+    position: absolute;
+}
+
+@keyframes payment_load_order {
+    0% {
+    transform: rotate(0deg);
+    }
+    100% {
+    transform: rotate(360deg);
+    }
+}
+@keyframes payment_show_tick {
+    0% {
+    height: 0;
+    width: 0;
+    opacity: 1;
+    }
+    20% {
+    height: 0;
+    width: 40px;
+    opacity: 1;
+    }
+    40% {
+    height: 80px;
+    width: 40px;
+    opacity: 1;
+    }
+    100% {
+    height: 80px;
+    width: 40px;
+    opacity: 1;
+    }
+}
+
+.payment_show_tick {
+    display: none;
+}
+
+.payment_show_tick.draw:after {
+    animation-name: payment_show_tick;
+    transform: scaleX(-1) rotate(135deg);
+    animation-duration: 1.2s;
+    animation-timing-function: ease;
+}
+.payment_order_done {
+    -webkit-animation: none;
+    background-color: white;
+    border-color: #5cb85c;
+    animation: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.payment_done{
+    display: none;
+}
+.loader-holder{
+    display: none;
+    justify-content: center;
+}
+.wk-payment-loader {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid rgb(94, 185, 55);
+    margin-top:11%;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+  }
+  
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  

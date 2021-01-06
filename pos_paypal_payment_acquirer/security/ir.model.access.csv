@@ -1,0 +1,14 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_manager_pos_paypal_configuration,_manager.paypal.configuration,model_pos_paypal_configuration,point_of_sale.group_pos_manager,1,1,1,1
+access_user_pos_paypal_configuration,user.paypal.configuration,model_pos_paypal_configuration,point_of_sale.group_pos_user,1,0,0,0
+
+
+
+access_manager_pos_payment_transaction,_manager.pos.payment.transaction,model_pos_payment_transaction,point_of_sale.group_pos_manager,1,1,1,1
+access_user_pos_payment_transaction,user.pos.payment.transaction,model_pos_payment_transaction,point_of_sale.group_pos_user,1,0,1,0
+
+
+access_manager_pos_payment_screen_config,_manager.pos.payment.screen.config,model_pos_payment_screen_config,point_of_sale.group_pos_manager,1,1,1,1
+access_user_pos_payment_screen_config,user.pos.payment.screen.config,model_pos_payment_screen_config,point_of_sale.group_pos_user,1,1,1,0
+access_manager_promotion_image,_manager.promotion.image,model_promotion_image,point_of_sale.group_pos_manager,1,1,1,1
+access_user_promotion_image,user.promotion.image,model_promotion_image,point_of_sale.group_pos_user,1,1,1,0

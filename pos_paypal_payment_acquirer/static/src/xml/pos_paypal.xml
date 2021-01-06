@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- License URL : <https://store.webkul.com/license.html/> -->
+<templates id="template" xml:space="preserve">
+    <t t-name="PaymentNotifyPopupWidget">
+		<div class="modal-dialog">
+			<div class="popup popup-textinput" style="border-radius:5px; height:220px" >
+				<div class="order_status" style="height:80px;width:80px;margin-top:15px">
+					<div class="show_tick draw"></div>
+				</div>
+				<h3 id="quote_status" style="color:#5cb85c;height:12px;"><t t-esc="widget.options.title || 'Request Created !!!!!'"/></h3>
+                <p style="font-size:16px;"><t t-esc="widget.options.body"/></p>
+            </div>
+		</div>
+	</t>
+
+   <t t-name="QRcodePopup">
+        <div role="dialog" class="modal-dialog">
+            <div class="popup popup-alert" style="width:336px;height:452px;">
+                <p class="title"><t t-esc=" widget.options.title || 'Scan Me' " /></p>
+                <div class="body">
+                    <img style="width:81%;" id="paypal_qrcode"></img>
+                    <p>Scan this QR Code to make Payment</p>
+                    <p><t t-esc="widget.options.line_amount"/></p>
+                </div>
+                <div class="footer">
+                    <div class="button cancel">
+                        Cancel
+                    </div>
+                </div>
+            </div>
+        </div>
+   </t>
+
+
+    <t t-name="PaypalPaymentPopup">
+                <div role="dialog" class="modal-dialog">
+                    <div class="popup popup-alert" style="width:65%;height:452px;">
+                        <p class="title"><t t-esc=" widget.options.title || 'Scan Me' " /></p>
+                        <input type="number"/>
+                        <div class="footer">
+                            <div class="button cancel">
+                                Cancel
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    </t>
+    <t t-extend="PaymentScreen-Paymentlines">
+        <t t-jquery=".col-name" t-operation="inner">
+            <t t-if="! line.payment_method.is_cash_count">
+                <t t-if="line.paypal_payment_pending">
+                    <div>WAITING FOR SCAN</div>
+                </t>
+                <t t-if="line.mercury_swipe_pending">
+                    <div>WAITING FOR SWIPE</div>
+                </t>
+                <t t-if="! (line.paypal_payment_pending or line.mercury_swipe_pending)">
+                    <t t-esc='line.name' /></t>
+            </t>
+            <t t-if="line.payment_method.is_cash_count">
+                <t t-esc='line.name' /></t>
+        </t>
+        <t t-jquery='.delete-button' t-operation='after'>
+            <t t-if="line.paypal_payment_pending and line.is_paypal_payment_line">
+                <td class='refresh-button' t-att-data-cid='line.cid'>
+                    <i style="font-size:20px;color:white" class='fa fa-refresh fa-spin fa-3x fa-fw' />
+                </td>
+            </t>
+        </t>
+    </t>
+
+
+    <t t-name="PaypalPaymentTemplate" > 
+        <div style="max-height:100%;height:100%;">
+                <div class="payment_page_html " style="height:100%">
+                    <div style="width:100%;height:100%;" class="container-fluid">
+                        <div class="row payment_form" style="padding:0px;height:100%">
+                            <div class="col-md-5" style="padding:0;">
+                                <div class="outer-banner" style="background: rgba(26, 23, 184, 0.78);width:100%;height:100%;">
+                                    <img class="img-responsive img-fluid" alt="banner" src="/pos_paypal_payment_acquirer/static/lib/img/illustration.png"/>
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                            <i id="cancel_payment" class="fa fa-times" style="cursor:pointer;position:absolute;right:20px;font-size:30px;top:10px;"></i>
+                            <div class="form-holder">
+                                <form id="payment-form" style="margin-top:8%;" class="container paypal-form sr-payment-form">
+                                    <t t-if="customer_name">
+                                        <div class="row" style="display:flex;justify-content:center;">
+                                            <label style="font-family: Roboto;font-style: normal;font-weight: 500;font-size: 24px;line-height: 28px;text-transform: uppercase;color: #646464;">
+                                                <t t-esc="customer_name"/>
+                                            </label><br/><br/>
+                                        </div>
+                                    </t>
+                                    <t t-if="order_ref">
+                                        <div class="row" style="display:flex;justify-content:center;">
+                                            <label style="font-family: Roboto;font-style: normal;font-weight: normal;font-size: 16px;line-height: 19px;text-transform: capitalize;color: #777777;">
+                                                Order ID: <t t-esc="order_ref"/>
+                                            </label><br/><br/>
+                                        </div>
+                                    </t>
+                                    <div class="row" style="display:flex;justify-content:center;">
+                                        <label style="text-align:center;font-family: Roboto;font-style: normal;font-weight: bold;font-size: 28px;line-height: 33px;color: #403F4F;">
+                                            Scan This QR Code To Pay Via PayPal
+                                        </label><br/><br/><br/>
+                                    </div>
+                                    <div style="display:flex;justify-content:center;">
+                                        <img t-att-src="qr_code_base64" style="width:50%;"/>
+                                    </div>
+                                </form>
+                                </div>
+                                <div class="loader-holder">
+                                    <div class="wk-payment-loader"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </t>
+
+
+
+
+    <t t-name="PosWelcomeScreenTemplate" >
+        <div style="height:100%;background: #FFFFFF;">
+            <div class="d-flex justify-content-center" style="background-color:#FAFAFA;padding: 1em;box-shadow: 0 5px 5px -5px black;">
+                <div>
+                    <h1 t-esc="company"/>
+                </div>
+            </div>
+            <div class="row" style="height: 86%;max-width:100%;padding:0 3%;">
+                <div class="container" style="margin-top: 10px;max-height:100%;max-width:100%;">
+                    <div class="row" style="height:auto;">
+                        <div class="d-flex flex-column justify-content-center mb-1 mt-2" style="width:100%;">
+                            <div class="text-center welcome_screen">
+                                <t t-if="screen_data and screen_data.welcome_screen_heading">
+                                    <t t-esc="screen_data.welcome_screen_heading"/>
+                                </t> 
+                                <t t-if="screen_data and !screen_data.welcome_screen_heading">
+                                    <div>WELCOME!!</div>
+                                </t>
+                            </div>
+                            <div class="text-center welcome-subheading">
+                                <t t-if="screen_data and screen_data.welcome_screen_subheading">
+                                    <t t-esc="screen_data.welcome_screen_subheading"/>
+                                </t> 
+                                <t t-if="screen_data and !screen_data.welcome_screen_subheading">
+                                    <div>TO <t t-esc="pos_name"/></div>
+                                </t>
+                            </div>
+                            <t t-if="screen_data.welcome_screen_content">
+                                <div class="text-center">
+                                    <p class="welcome-main_content" t-esc="screen_data.welcome_screen_content"/>
+                                </div>
+                            </t>
+                        </div>
+                    </div>
+                    <div class="row" style="height:58%;width:100%;justify-content:center;">
+                        <div class="d-flex flex-row justify-content-center" style="width:100%;height:100%">
+                            <t t-if="images">
+                                <t t-foreach="images" t-as="image">
+                                    <div class="d-inline-flex p-2 bd-highlight" style="width:33%;">
+                                        <img style="width:100%; height:100%;" class="img-responsive img-fluid img-thumbnail" t-attr-src="#{image}"/>
+                                    </div>
+                                </t>
+                            </t>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+    
+
+</templates>

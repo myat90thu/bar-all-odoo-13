@@ -1,0 +1,226 @@
+/* Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) */
+/* See LICENSE file for full copyright and licensing details. */
+/* License URL : <https://store.webkul.com/license.html/> */
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+}
+.welcome_screen{
+  font-family: Montserrat;
+  font-weight: bold;
+  font-size: 28px;
+  color: #333333;
+  text-align: center;
+  line-height: 44px;
+}
+.loading-content{
+  width:100%;
+  font-size:20px;
+  margin-top:22px;
+  font-weight:bold;
+  text-align:center;
+}
+.welcome-subheading{
+  font-family: Montserrat;
+  font-size: 28px;
+  font-weight:bold;
+  color: #333333;
+  text-align: center;
+  line-height: 44px;
+}
+.welcome-main_content{
+  font-family: Montserrat;
+  font-size: 17px;
+  color: #777777;
+  font-weight:400;
+  text-align: center;
+  line-height: 22px;
+}
+.wrap_loading{
+  position:relative;
+  top:36%;
+}
+.wk-loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.paypal-form{
+  width:95%;
+  display: inline-block;
+}
+.payment_form{
+  display: flex;
+  justify-content: center;
+  /* margin-top:6% */
+}
+/* #submit{
+border: none;
+border-radius: 4px;
+outline: none;
+text-decoration: none;
+color: #fff;
+background: #32325d;
+white-space: nowrap;
+display: inline-block;
+height: 40px;
+line-height: 40px;
+padding: 0 14px;
+box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
+border-radius: 4px;
+font-size: 15px;
+font-weight: 600;
+letter-spacing: 0.025em;
+text-decoration: none;
+-webkit-transition: all 150ms ease;
+transition: all 150ms ease;
+margin-top:20px;
+width: 100%;
+text-align:center;
+}
+#cancel_payment{
+border: none;
+border-radius: 4px;
+outline: none;
+text-decoration: none;
+color: #fff;
+background: red;
+white-space: nowrap;
+display: inline-block;
+height: 40px;
+line-height: 40px;
+padding: 0 14px;
+box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
+border-radius: 4px;
+font-size: 15px;
+font-weight: 600;
+letter-spacing: 0.025em;
+text-decoration: none;
+-webkit-transition: all 150ms ease;
+transition: all 150ms ease;
+margin-top:20px;
+width: 100%;
+text-align:center;
+} */
+.payment_page_html{
+  display: flex;
+  justify-content: center;
+}
+.outer-temp{
+  /* width:80%; */
+  margin-top: 15%;
+  padding:0 10%;
+}
+
+
+/* .PaypalElement, .card-extra-inputs {
+  box-sizing: border-box !important;
+
+  height: 55px !important;
+
+  padding: 15px 12px !important;
+
+  border: 1px solid grey !important;
+  border-radius: 7px !important;
+  background-color: white !important;
+
+  box-shadow: 0 2px 5px 0 #e6ebf1 !important;
+  -webkit-transition: box-shadow 150ms ease !important;
+  transition: box-shadow 150ms ease !important;
+} */
+
+.PaypalElement, .card-extra-inputs{
+
+  border: 2px solid #919194;
+  box-sizing: border-box;
+  border-radius: 4px;
+  height: 55px !important;
+
+  padding: 15px 12px !important;
+}
+
+
+.PaypalElement--focus {
+  box-shadow: 0 1px 3px 0 #cfd7df;
+}
+.card-extra-inputs--focus{
+  box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+.PaypalElement--invalid {
+  border-color: #fa755a;
+}
+.wk-error{
+  border-color: #fa755a;
+}
+#customer-name:focus{
+  border-color:#919194;
+}
+
+#customer-phone:focus{
+  border-color:#919194;
+}
+
+.PaypalElement--webkit-autofill {
+  background-color: #fefde5 !important;
+}
+.form-holder{
+  height: 100%;
+}
+.loader-holder{
+  display: none;
+  justify-content: center;
+}
+.wk-payment-loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid rgb(94, 185, 55);
+  /* margin-top:5%; */
+  position: absolute;
+  top:40%;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+.payment-successful{
+  font-size: 36px;
+  margin-top: 40%;
+  width: 100%;
+  text-align: center;
+}
+.payment-failed{
+  font-size: 36px;
+  margin-top: 40%;
+  width: 100%;
+  text-align: center;
+  color:red;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

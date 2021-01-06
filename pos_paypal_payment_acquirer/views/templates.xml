@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- License URL : <https://store.webkul.com/license.html/> -->
+<odoo>
+    <data>
+        <template id="assets" inherit_id="point_of_sale.assets">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/pos_paypal_payment_acquirer/static/src/js/main.js"></script>
+                <script type="text/javascript" src="/pos_paypal_payment_acquirer/static/lib/js/qrcode.min.js"></script>
+                <link rel="stylesheet" href="/pos_paypal_payment_acquirer/static/src/css/main.css" />
+            </xpath>
+        </template>
+
+
+		<template id="display_assets" name="Pos Payment Screen display assets">
+			<script type="text/javascript" src="/pos_paypal_payment_acquirer/static/lib/js/payment_screen.js"></script>
+			<link rel="stylesheet" href="/pos_paypal_payment_acquirer/static/lib/css/payment_screen.css"/>
+		</template>
+
+
+    </data>
+</odoo>

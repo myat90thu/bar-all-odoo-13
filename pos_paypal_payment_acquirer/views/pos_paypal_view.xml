@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<!-- License URL : <https://store.webkul.com/license.html/> -->
+<odoo>
+
+    <data>
+
+
+        <record id="view_pos_paypal_configuration_tree" model="ir.ui.view" >
+            <field name="name">pos.paypal.configurations.tree</field>
+            <field name="model">pos_paypal.configuration</field>
+            <field name="arch" type="xml">
+                <tree string="Paypal Tree">
+                    <field name="name"/>
+                    <field name="publishable_key"/>
+                    <field name="secret_key"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_pos_paypal_configuration_form" model="ir.ui.view" >
+            <field name="name">pos.paypal.configurations.form</field>
+            <field name="model">pos_paypal.configuration</field>
+            <field name="arch" type="xml">
+                <form string="Paypal">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="toggle_active_record" type="object" class="oe_stat_button" icon="fa-archive">
+                                <field name="active_record" widget="boolean_button"/>
+                            </button>
+                        </div>
+                        <group col="2">
+                            <field name="name"/>
+                            <field name="publishable_key"/>
+                            <field name="secret_key"/>
+                            <field name="type_of_configuration" widget="radio" required="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+
+
+        <record id="view_pos_paypal_configuration_search" model="ir.ui.view" >
+            <field name="name">pos.paypal.configurations.search</field>
+            <field name="model">pos_paypal.configuration</field>
+            <field name="arch" type="xml">
+                <search string="Search View">
+                    <filter string="Active" name='active_record' domain="[('active_record','=',True)]"/>
+                    <filter string="Inactive" name='active_record' domain="[('active_record','=',False)]"/>
+                </search>
+            </field>
+        </record>
+        
+
+        <record id="action_paypal_configuration_form" model="ir.actions.act_window">
+            <field name="name">Paypal Configurations</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">pos_paypal.configuration</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="pos_paypal_payment_acquirer.view_pos_paypal_configuration_tree"/>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Configure your Paypal
+              </p>
+            </field>
+        </record>
+
+        <record id="pos_payment_paypal_form_view" model="ir.ui.view" >
+            <field name="name">pos.payment.form</field>
+            <field name="model">pos.payment</field>
+            <field name="inherit_id" ref="point_of_sale.view_pos_payment_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='session_id']" position='after'>
+                    <field name="paypal_src_id" attrs="{'invisible' : [('paypal_src_id', '=', False)]}"/>
+                </xpath>
+            </field>
+        </record>
+
+        
+        <record id="pos_paypal_journal_form_view" model="ir.ui.view">
+            <field name="name">Pos Payment Method Form</field>
+            <field name="model">pos.payment.method</field>
+            <field name="inherit_id" ref="point_of_sale.pos_payment_method_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='is_cash_count']" position="after">
+                    <field name= 'paypal_payment_method'/>
+                </xpath>
+            </field>
+        </record>
+
+
+    <menuitem
+        id="menu_pos_pos_paypal_config"
+        name="Paypal Configurations"
+        groups="point_of_sale.group_pos_manager"
+        parent="point_of_sale.menu_point_config_product"
+        sequence="36"
+        action="pos_paypal_payment_acquirer.action_paypal_configuration_form"
+        />
+    </data>
+
+
+	<template id="pos_payment_screen_template" name="PKS Main screen">
+		<html>
+			<head>
+				<title >POS Paypal Payment Screen</title>
+				<link rel="stylesheet" type="text/css" href="/web/static/lib/fontawesome/css/font-awesome.css"/>
+				<script class="origin" type="text/javascript" src="/web/static/lib/jquery/jquery.js"></script>
+				<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+				<meta http-equiv="content-type" content="text/html, charset=utf-8" />
+				<meta name="viewport" content="width=device-width, initial-scale=1"/>
+				<meta name="apple-mobile-web-app-capable" content="yes"/>
+				<meta name="mobile-web-app-capable" content="yes"/>
+				<link rel="shortcut icon" href="/web/static/src/img/favicon.ico" type="image/x-icon"/>
+				<t t-call-assets="web.assets_common"/>
+				<t t-call-assets="web.assets_frontend"/>
+				<t t-call-assets="pos_paypal_payment_acquirer.display_assets"/>
+			</head>
+			<body>
+				<div class="main_body"  style="height:100%;" screen-type="false">
+					<div style="background:#80808047;height: 100%;">
+						<div class="wrap_loading">
+							<div class="d-flex justify-content-center" >
+								<div class="wk-loader"></div>
+							</div>
+							<div class="loading-content">
+								Your POS Session is not started yet, Please start to begin!!
+							</div>
+						</div>
+					</div>
+				</div>
+			</body>
+		</html>
+	</template>
+</odoo>
