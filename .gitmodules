@@ -1,14 +1,16 @@
-[submodule "Miller-Media/pragmatic_quickbooks_connector"]
-	path = Miller-Media/pragmatic_quickbooks_connector
-	url = git@github.com:Miller-Media/pragmatic_quickbooks_connector.git
-	branch = master
-
-[submodule "Miller-Media/odoo-skuvault-connector"]
-	path = Miller-Media/odoo-skuvault-connector
-	url = git@github.com:Miller-Media/odoo-skuvault-connector.git
-	branch = odoo-13
-
-[submodule "Miller-Media/connector"]
-	path = Miller-Media/connector
-	url = git@github.com:Miller-Media/connector.git
+[submodule "connectors/connector"]
+	path = connectors/connector
+	url = git@github.com:Bar-All/mm-connector.git
 	branch = 13.0
+[submodule "connectors/odoo-skuvault-connector"]
+	path = connectors/odoo-skuvault-connector
+	url = git@github.com:Bar-All/mm-odoo-skuvault-connector.git
+	branch = odoo-13
+[submodule "connectors/pragmatic_quickbooks_connector"]
+	path = connectors/pragmatic_quickbooks_connector
+	url = git@github.com:Bar-All/mm-pragmatic_quickbooks_connector.git
+	branch = master
+[submodule "connectors/quickbooks_connector"]
+	path = connectors/quickbooks_connector
+	url = git@github.com:Bar-All/mm-quickbooks_connector.git
+	branch = master
