@@ -1,7 +1,7 @@
 [submodule "connectors/connector"]
 	path = connectors/connector
 	url = git@github.com:Bar-All/mm-connector.git
-	branch = 13.0
+	branch = 14.0
 [submodule "connectors/odoo-skuvault-connector"]
 	path = connectors/odoo-skuvault-connector
 	url = git@github.com:Bar-All/mm-odoo-skuvault-connector.git
