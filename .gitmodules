@@ -14,7 +14,3 @@
 	path = connectors/quickbooks_connector
 	url = git@github.com:Bar-All/mm-quickbooks_connector.git
 	branch = master
-[submodule "stock-logistics-workflow"]
-	path = stock-logistics-workflow
-	url = git@github.com:OCA/stock-logistics-workflow.git
-	branch = 14.0
