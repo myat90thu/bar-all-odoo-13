@@ -1,11 +1,11 @@
 [submodule "connectors/connector"]
 	path = connectors/connector
 	url = git@github.com:Bar-All/mm-connector.git
-	branch = 13.0
+	branch = 14.0
 [submodule "connectors/odoo-skuvault-connector"]
 	path = connectors/odoo-skuvault-connector
 	url = git@github.com:Bar-All/mm-odoo-skuvault-connector.git
-	branch = odoo-13
+	branch = 14.0
 [submodule "connectors/pragmatic_quickbooks_connector"]
 	path = connectors/pragmatic_quickbooks_connector
 	url = git@github.com:Bar-All/mm-pragmatic_quickbooks_connector.git
@@ -14,7 +14,3 @@
 	path = connectors/quickbooks_connector
 	url = git@github.com:Bar-All/mm-quickbooks_connector.git
 	branch = master
-[submodule "stock-logistics-workflow"]
-	path = stock-logistics-workflow
-	url = git@github.com:OCA/stock-logistics-workflow.git
-	branch = 13.0

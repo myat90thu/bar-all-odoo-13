@@ -1,0 +1,2 @@
+# generated from manifests external_dependencies
+paypal==1.2.5
