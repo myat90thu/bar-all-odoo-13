@@ -15,6 +15,7 @@ _logger = logging.getLogger(__name__)
 
 class PosPaymentScreenConfig(models.Model):
 	_name = 'pos.payment.screen.config'
+	_description = 'PosPaymentScreenConfig'
 	_rec_name = 'related_id'
 
 	url = fields.Text(string="Customer Display Url",compute="compute_url")
@@ -76,7 +77,7 @@ class PosPaymentScreenConfig(models.Model):
 
 class Promotions(models.Model):
 	_name = 'promotion.image'
-
+	_description = 'Promotions'
 	image = fields.Binary(string="Promotional Pictures")
 	promotions_related_id = fields.Many2one('pos.payment.screen.config',string="Promotions")
 
