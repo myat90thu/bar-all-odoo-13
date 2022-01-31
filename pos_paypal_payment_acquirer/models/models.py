@@ -95,7 +95,7 @@ class PosPaymentTransaction(models.Model):
     created_from = fields.Selection([('pos','POS'),('screen','Screen')],string="Created From")
     txn_data = fields.Text(string="Transaction Data")
     fail_reason = fields.Text(string="Reason of Failure")
-    amount_with_currency = fields.Char(string="Payment Amount")
+    amount_with_currency = fields.Char(string="Payment Amount With Currency")
     partner_id = fields.Many2one('res.partner',string="Customer Name")
 
 
