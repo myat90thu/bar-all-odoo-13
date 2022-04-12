@@ -49,6 +49,7 @@
             <field name="model">pos_paypal.configuration</field>
             <field name="arch" type="xml">
                 <search string="Search View">
+                    <field  name="name" string="tmp_field"/>
                     <filter string="Active" name='active_record' domain="[('active_record','=',True)]"/>
                     <filter string="Inactive" name='active_record' domain="[('active_record','=',False)]"/>
                 </search>

@@ -41,10 +41,9 @@ class AccountJournal(models.Model):
                     pos_config.sudo().write({'payment_method_ids':[(4,paypal_payment_method.id)]})
 
 
-
 class PosWeChatConfiguration(models.Model):
     _name = "pos_paypal.configuration"
-
+    _description = 'pos_paypal configuration'
     name = fields.Char(string="Name", help="Name of this Paypal configuration")
     publishable_key = fields.Text(string="API Key",required=True, help="Api Key of user to autheticate him on the payment service provider.")
     secret_key = fields.Text(string="Secret API Key",required=True, help="Api Key of user to autheticate him on the payment service provider.")
@@ -86,6 +85,7 @@ class PosPayment(models.Model):
 
 class PosPaymentTransaction(models.Model):
     _name = 'pos.payment.transaction'
+    _description = 'PosPaymentTransaction'
     _rec_name = 'txn_id'
 
     payment_amount = fields.Float(string="Payment Amount")
@@ -95,7 +95,7 @@ class PosPaymentTransaction(models.Model):
     created_from = fields.Selection([('pos','POS'),('screen','Screen')],string="Created From")
     txn_data = fields.Text(string="Transaction Data")
     fail_reason = fields.Text(string="Reason of Failure")
-    amount_with_currency = fields.Char(string="Payment Amount")
+    amount_with_currency = fields.Char(string="Payment Amount With Currency")
     partner_id = fields.Many2one('res.partner',string="Customer Name")
 
 
